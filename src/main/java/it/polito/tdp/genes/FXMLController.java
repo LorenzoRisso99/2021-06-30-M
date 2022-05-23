@@ -38,6 +38,20 @@ public class FXMLController {
 
     @FXML
     void doContaArchi(ActionEvent event) {
+    	
+    	double num = 0.0;
+    	
+    	try {
+			num = Double.parseDouble(txtSoglia.getText());
+		} catch (NumberFormatException n) {
+			throw new NumberFormatException();
+		}
+    	
+    	model.check(num);
+    	
+    	txtResult.appendText("Soglia " + num + " -->");
+		txtResult.appendText("Maggiori: " + model.getNumP());
+		txtResult.appendText(", Minori: " + model.getNumM() + "\n");
 
     }
 
